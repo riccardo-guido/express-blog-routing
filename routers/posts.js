@@ -1,18 +1,23 @@
 const express = require("express");
-const { postsObj } = require("../data/db");
+const { posts } = require("../data/db");
 const router = express.Router();
 
 //# INDEX
 router.get("/", (req, res) => {
   res.json({
     description: "Lista dei post",
-    data: postsObj,
+    data: posts,
   });
 });
 //# SHOW
 router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  res.json("Lista del dettaglio del post " + id);
+  const id = parseInt(req.params.id);
+  const post = posts.find(currentPost => currentPost.id === id);
+  
+  res.json({
+    description: "Lista del dettaglio del post " + id,
+    data: post,
+  });
 });
 //# STORE
 router.post("/", (req, res) => {

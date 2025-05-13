@@ -1,7 +1,7 @@
 const appPort = 3000;
 const appUrl = `http://localhost:${appPort}`;
 
-const postsObj = [
+const posts = [
   {
     title: "post 1",
     content: "dolce 1",
@@ -37,5 +37,5 @@ const postsObj = [
 module.exports = {
   appPort,
   appUrl,
-  postsObj,
+  posts,
 };
